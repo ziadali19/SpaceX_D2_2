@@ -9,4 +9,7 @@ flutter_native_splash:
   # png file and should be sized for 4x pixel density.
   image: assets/images/splash.png
   android_12:
+   color: "#ffffff"
+  
+   image: assets/images/splash2.png
     
