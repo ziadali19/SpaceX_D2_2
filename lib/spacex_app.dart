@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:spacex_d2_2/core/theming/themes.dart';
 
 import 'core/routing/app_router.dart';
+import 'core/utils/constants.dart';
+import 'features/landing/presentation/screens/landing_screen.dart';
+import 'features/on_boarding/presentation/screens/on_boarding_screen.dart';
 
 class SpaceXApp extends StatelessWidget {
   const SpaceXApp({
@@ -16,7 +20,9 @@ class SpaceXApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          home: const Scaffold(),
+          home: AppConstants.onBoarding != true
+              ? const OnBoardingScreen()
+              : const LandingScreen(),
           onGenerateRoute: (settings) {
             return AppRouter.onGenerateRoute(settings);
           },
@@ -30,6 +36,7 @@ class SpaceXApp extends StatelessWidget {
             );
           },
           debugShowCheckedModeBanner: false,
+          theme: Themes.instance.lightTheme(context),
         );
       },
     );
