@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.5
+  flutter_native_splash: ^2.4.0
   flutter_screenutil: ^5.9.0
   flutter_styled_toast: ^2.2.1
   get_it: ^7.6.7
@@ -27,7 +28,7 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/svgs/
+    #- assets/svgs/
 
   fonts:
     - family: Roboto
