@@ -15,7 +15,7 @@ class SpaceXApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(393, 852),
+      designSize: const Size(500, 600),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
