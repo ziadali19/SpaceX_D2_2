@@ -12,17 +12,15 @@ class Themes {
 
   ThemeData lightTheme(BuildContext context) {
     return ThemeData(
-      scaffoldBackgroundColor: Colors.black,
       appBarTheme: AppBarTheme(
         centerTitle: true,
-        backgroundColor: Colors.black,
         titleTextStyle:
             TextStyles.font24White500.copyWith(fontFamily: 'RobotoCondensed'),
       ),
-      colorScheme: const ColorScheme.light(primary: Colors.black),
+      colorScheme: const ColorScheme.dark(primary: Colors.black),
       fontFamily: 'RobotoCondensed',
       useMaterial3: true,
-      brightness: Brightness.light,
+      brightness: Brightness.dark,
     );
   }
 }
