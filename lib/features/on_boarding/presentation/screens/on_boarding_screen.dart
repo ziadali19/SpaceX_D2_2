@@ -62,6 +62,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       verticalSpace(28.h),
                       ElevatedButton(
                           style: ButtonStyle(
+                              backgroundColor:
+                                  const MaterialStatePropertyAll(Colors.white),
                               shape: MaterialStatePropertyAll(
                                   RoundedRectangleBorder(
                                       borderRadius:
@@ -85,7 +87,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                     .copyWith(letterSpacing: 1.w),
                               ),
                               horizontalSpace(7.w),
-                              SvgPicture.asset('rightArrow'.svgPath()),
+                              SvgPicture.asset(
+                                'rightArrow'.svgPath(),
+                                color: Colors.black,
+                              ),
                             ],
                           )),
                       verticalSpace(40.h),
