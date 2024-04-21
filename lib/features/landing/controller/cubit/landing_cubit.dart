@@ -11,7 +11,7 @@ class LandingCubit extends Cubit<LandingState> {
 
   int selectedIndex = 0;
   List<Widget> navScreens = [const LaunchesScreen(), const RocketsScreen()];
-  List<String> navIcons = ['home', 'setting'];
+
   changeNavScreen(int index) {
     selectedIndex = index;
     emit(ChangeNavIndex());
