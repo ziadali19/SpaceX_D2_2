@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:spacex_d2_2/core/helpers/extensions.dart';
 import 'package:spacex_d2_2/core/helpers/show_toast.dart';
+import 'package:spacex_d2_2/core/routing/routes.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/services/service_locator.dart';
@@ -54,10 +56,16 @@ class RocketsScreen extends StatelessWidget {
                       return verticalSpace(20.h);
                     },
                     itemBuilder: (BuildContext context, int index) {
-                      return RocketItem(
-                          imageUrl: state.rockets![index].flickrImages![0],
-                          firstFlight: state.rockets![index].firstFlight!,
-                          rocketName: state.rockets![index].name!);
+                      return InkWell(
+                        onTap: () {
+                          context.pushNamed(Routes.rocketDetails,
+                              arguments: state.rockets![index]);
+                        },
+                        child: RocketItem(
+                            imageUrl: state.rockets![index].flickrImages![0],
+                            firstFlight: state.rockets![index].firstFlight!,
+                            rocketName: state.rockets![index].name!),
+                      );
                     },
                   );
                 }

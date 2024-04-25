@@ -1,7 +1,7 @@
 class Rocket {
   final Height? height;
-  final Diameter diameter;
-  final Mass mass;
+  final Diameter? diameter;
+  final Mass? mass;
   final FirstStage? firstStage;
   final SecondStage? secondStage;
   final Engines? engines;
@@ -50,8 +50,9 @@ class Rocket {
   factory Rocket.fromJson(Map<String, dynamic> map) {
     return Rocket(
       height: map['height'] != null ? Height.fromJson(map['height']) : null,
-      diameter: Diameter.fromJson(map['diameter']),
-      mass: Mass.fromJson(map['mass']),
+      diameter:
+          map['diameter'] != null ? Diameter.fromJson(map['diameter']) : null,
+      mass: map['mass'] != null ? Mass.fromJson(map['mass']) : null,
       firstStage: map['first_stage'] != null
           ? FirstStage.fromJson(map['first_stage'])
           : null,
