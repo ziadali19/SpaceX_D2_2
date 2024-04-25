@@ -19,38 +19,48 @@ class RocketsScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<RocketsCubit>()..getRockets(),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Rockets'),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-            child: BlocConsumer<RocketsCubit, RocketsState>(
-              listener: (context, state) {
-                if (state is GetRocketsError) {
-                  showSnackBar(state.errorMsg, context, false);
-                }
-              },
-              builder: (context, state) {
-                if (state is GetRocketsLoading) {
-                  return ListView.separated(
-                    shrinkWrap: true,
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: 4,
-                    separatorBuilder: (BuildContext context, int index) {
-                      return SizedBox(
-                        height: 20.h,
-                      );
-                    },
-                    itemBuilder: (BuildContext context, int index) {
+        body:
+            CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
+          SliverAppBar(
+              pinned: true,
+              leadingWidth: 200.w,
+              leading: Row(
+                children: [
+                  horizontalSpace(20.w),
+                  Image.asset(
+                    'assets/images/spaceXLogo.png',
+                    height: 20.h,
+                    width: 163.w,
+                  ),
+                ],
+              )),
+          BlocConsumer<RocketsCubit, RocketsState>(
+            listener: (context, state) {
+              if (state is GetRocketsError) {
+                showSnackBar(state.errorMsg, context, false);
+              }
+            },
+            builder: (context, state) {
+              if (state is GetRocketsLoading) {
+                return SliverPadding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                  sliver: SliverList.separated(
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
                       return const ShimmerWidget();
                     },
-                  );
-                }
-                if (state is GetRocketsSuccess) {
-                  return ListView.separated(
-                    shrinkWrap: true,
-                    physics: const BouncingScrollPhysics(),
+                    separatorBuilder: (BuildContext context, int index) {
+                      return verticalSpace(20.h);
+                    },
+                  ),
+                );
+              }
+              if (state is GetRocketsSuccess) {
+                return SliverPadding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                  sliver: SliverList.separated(
                     itemCount: state.rockets!.length,
                     separatorBuilder: (BuildContext context, int index) {
                       return verticalSpace(20.h);
@@ -67,13 +77,13 @@ class RocketsScreen extends StatelessWidget {
                             rocketName: state.rockets![index].name!),
                       );
                     },
-                  );
-                }
-                return const SizedBox.shrink();
-              },
-            ),
-          ),
-        ),
+                  ),
+                );
+              }
+              return const SliverToBoxAdapter(child: SizedBox.shrink());
+            },
+          )
+        ]),
       ),
     );
   }
