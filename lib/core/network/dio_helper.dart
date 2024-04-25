@@ -14,7 +14,7 @@ class DioHelper {
   DioHelper._internal() {
     dio = Dio(BaseOptions(
         contentType: Headers.jsonContentType,
-        baseUrl: '',
+        baseUrl: 'https://api.spacexdata.com/',
         receiveDataWhenStatusError: true));
   }
 

@@ -11,8 +11,8 @@ BottomNavigationBarItem navBarItem(
         children: [
           Text(
             label,
-            style: TextStyles.font16White400
-                .copyWith(fontSize: 18.sp, fontWeight: FontWeight.w600),
+            style:
+                TextStyles.font16White400.copyWith(fontWeight: FontWeight.w500),
           ),
           SizedBox(
             height: 5.h,
@@ -29,7 +29,7 @@ BottomNavigationBarItem navBarItem(
       ),
       icon: Text(
         label,
-        style: TextStyles.font16White400,
+        style: TextStyles.font14White400,
       ),
       label: '');
 }
