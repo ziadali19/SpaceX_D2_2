@@ -2,4 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-class ColorsManager {}
+class ColorsManager {
+  static Color whiteColor = Colors.white54;
+}
