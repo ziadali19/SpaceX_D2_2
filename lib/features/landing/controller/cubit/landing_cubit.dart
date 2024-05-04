@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 import 'package:spacex_d2_2/features/launches/presentation/screens/launches_screen.dart';
 import 'package:spacex_d2_2/features/rockets/presentation/screens/rockets_screen.dart';
 
