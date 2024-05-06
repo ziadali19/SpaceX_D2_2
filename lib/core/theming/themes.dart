@@ -15,7 +15,7 @@ class Themes {
       appBarTheme: AppBarTheme(
         centerTitle: true,
         titleTextStyle:
-            TextStyles.font24White500.copyWith(fontFamily: 'RobotoCondensed'),
+            TextStyles.font20White500.copyWith(fontFamily: 'RobotoCondensed'),
       ),
       colorScheme: const ColorScheme.dark(primary: Colors.black),
       fontFamily: 'RobotoCondensed',
