@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../core/theming/styles.dart';
 
@@ -7,11 +8,13 @@ class Luanchesitem extends StatelessWidget {
   const Luanchesitem({
     super.key,
     required this.imageUrl,
-    required this.rocket,
+    //  required this.rocket,
     required this.name,
+    //required this.time,
   });
   final String imageUrl;
-  final String rocket;
+  //final String time;
+//  final String rocket;
   final String name;
   @override
   Widget build(BuildContext context) {
@@ -34,10 +37,15 @@ class Luanchesitem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              rocket,
-              style: TextStyles.font18White700,
-            ),
+            // Text(
+            //   DateFormat.yMMMMd()
+            //       .format(DateTime.parse(date).toUtc().toLocal()),
+            //   style: TextStyles.font12Blue500,
+            // ),
+            //   Text(
+            //  //   rocket,
+            //  //   style: TextStyles.font18White700,
+            //   ),
             Text(
               name,
               style: TextStyles.font18White700,

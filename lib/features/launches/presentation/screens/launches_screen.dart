@@ -69,13 +69,18 @@ class LaunchesScreen extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
                         onTap: () {
-                          context.pushNamed(Routes.luanches_details_Screen);
+                          context.pushNamed(Routes.luanches_details_Screen,
+                              arguments: state.luanchModel![index]);
                         },
                         child: Luanchesitem(
-                          imageUrl:
-                              state.luanchModel![index].links!.patch!.large![0],
-                          rocket: state.luanchModel![index].rocket as String,
+                          imageUrl: state.luanchModel![index].links!.flickr!
+                                  .original!.isNotEmpty
+                              ? state.luanchModel![index].links!.flickr!
+                                  .original![0]
+                              : "https://live.staticflickr.com/65535/49635401403_96f9c322dc_o.jpg",
+                          // rocket: state.luanchModel![index].rocket as String,
                           name: state.luanchModel![index].name!,
+                          //  time: state.luanchModel![index].datePrecision!,
                         ),
                       );
                     },
