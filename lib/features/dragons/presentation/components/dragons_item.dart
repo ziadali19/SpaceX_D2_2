@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../core/theming/styles.dart';
 
-class Luanchesitem extends StatelessWidget {
-  const Luanchesitem({
+class DragonsItem extends StatelessWidget {
+  const DragonsItem({
     super.key,
     required this.imageUrl,
-    //  required this.rocket,
-    required this.name,
-    //required this.time,
+    required this.firstFlight,
+    required this.rocketName,
   });
   final String imageUrl;
-  //final String time;
-//  final String rocket;
-  final String name;
+  final String firstFlight;
+  final String rocketName;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,17 +35,13 @@ class Luanchesitem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Text(
-            //   DateFormat.yMMMMd()
-            //       .format(DateTime.parse(date).toUtc().toLocal()),
-            //   style: TextStyles.font12Blue500,
-            // ),
-            //   Text(
-            //  //   rocket,
-            //  //   style: TextStyles.font18White700,
-            //   ),
             Text(
-              name,
+              DateFormat.yMMMMd()
+                  .format(DateTime.parse(firstFlight).toUtc().toLocal()),
+              style: TextStyles.font12Blue500,
+            ),
+            Text(
+              rocketName,
               style: TextStyles.font18White700,
             )
           ],

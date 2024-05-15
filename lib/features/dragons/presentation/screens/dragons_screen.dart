@@ -4,21 +4,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spacex_d2_2/core/helpers/extensions.dart';
 import 'package:spacex_d2_2/core/helpers/show_toast.dart';
 import 'package:spacex_d2_2/core/routing/routes.dart';
-import 'package:spacex_d2_2/features/launches/controller/cubit/luanches_cubit.dart';
-import 'package:spacex_d2_2/features/launches/data/models/launches_model.dart';
-import 'package:spacex_d2_2/features/launches/presentation/component/launch_item.dart';
+import 'package:spacex_d2_2/features/dragons/controller/cubit/cubit/dragon_cubit.dart';
+import 'package:spacex_d2_2/features/dragons/presentation/components/dragons_item.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/widgets/shimmer_widget.dart';
 
-class LaunchesScreen extends StatelessWidget {
-  const LaunchesScreen({super.key, LuanchModel? luanchModel});
+class DragonsScreen extends StatelessWidget {
+  const DragonsScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<LuanchesCubit>()..getLunaches(),
+      create: (context) => sl<DragonsCubit>()..Get_all_Dragons(),
       child: Scaffold(
         body:
             CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
@@ -35,14 +36,14 @@ class LaunchesScreen extends StatelessWidget {
                   ),
                 ],
               )),
-          BlocConsumer<LuanchesCubit, LuanchesState>(
+          BlocConsumer<DragonsCubit, DragonState>(
             listener: (context, state) {
-              if (state is LaunchesError) {
+              if (state is GetDragonsError) {
                 showSnackBar(state.errorMsg, context, false);
               }
             },
             builder: (context, state) {
-              if (state is Luanchesloading) {
+              if (state is GetDragonsLoading) {
                 return SliverPadding(
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
@@ -57,31 +58,25 @@ class LaunchesScreen extends StatelessWidget {
                   ),
                 );
               }
-              if (state is Luanchesuccess) {
+              if (state is GetDragonsSuccess) {
                 return SliverPadding(
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
                   sliver: SliverList.separated(
-                    itemCount: state.luanchModel!.length,
+                    itemCount: state.dragons!.length,
                     separatorBuilder: (BuildContext context, int index) {
                       return verticalSpace(20.h);
                     },
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
                         onTap: () {
-                          context.pushNamed(Routes.luanches_details_Screen,
-                              arguments: state.luanchModel![index]);
+                          context.pushNamed(Routes.DragonsScreen_Details,
+                              arguments: state.dragons![index]);
                         },
-                        child: Luanchesitem(
-                          imageUrl: state.luanchModel![index].links!.flickr!
-                                  .original!.isNotEmpty
-                              ? state.luanchModel![index].links!.flickr!
-                                  .original![0]
-                              : "https://live.staticflickr.com/65535/49635401403_96f9c322dc_o.jpg",
-                          // rocket: state.luanchModel![index].rocket as String,
-                          name: state.luanchModel![index].name!,
-                          //  time: state.luanchModel![index].datePrecision!,
-                        ),
+                        child: DragonsItem(
+                            imageUrl: state.dragons![index].flickrImages![0],
+                            firstFlight: state.dragons![index].firstFlight!,
+                            rocketName: state.dragons![index].name!),
                       );
                     },
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spacex_d2_2/core/utils/CustomOutline.dart';
 import 'package:spacex_d2_2/core/utils/spacex_background_view.dart';
@@ -20,6 +21,7 @@ class DetailView extends StatefulWidget {
 
 class _DetailViewState extends State<DetailView> {
   void launchURL(String url) async {
+    // ignore: deprecated_member_use
     if (await canLaunch(url)) {
       await closeInAppWebView();
     } else {
@@ -32,7 +34,7 @@ class _DetailViewState extends State<DetailView> {
     showDialog(
         context: context,
         builder: (context) {
-          return HackerVideoView();
+          return const HackerVideoView();
         });
   }
 
@@ -92,7 +94,7 @@ class _DetailViewState extends State<DetailView> {
                         textAlign: TextAlign.center,
                       ),
                       Text(
-                        "flight number: ${widget.luanchModel.name}",
+                        "Flight Number: ${widget.luanchModel.name}",
                         style: const TextStyle(
                             fontSize: 14,
                             color: Colors.pink,
@@ -167,8 +169,22 @@ class _DetailViewState extends State<DetailView> {
                       ),
                       CustomOutline(
                         onTap: () {
-                          // delete fonk çağrılacak
-                          alertDialog();
+                          final snackBar = SnackBar(
+                            backgroundColor: Colors.green,
+                            content: Text(
+                                "Flight Number: : ${widget.luanchModel.name}"),
+                            duration: Duration(seconds: 3), // Optional duration
+                            action: SnackBarAction(
+                              label: 'Sucessful Lunach',
+                              onPressed: () {
+                                // Perform some action when 'Close' is pressed
+                              },
+                              textColor: Colors.white,
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+                          //alertDialog();
                         },
                         strokeWidth: 1,
                         radius: 20,
@@ -178,7 +194,7 @@ class _DetailViewState extends State<DetailView> {
                         gradient: const LinearGradient(
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
-                          colors: [Colors.pink, Colors.green],
+                          colors: [Colors.grey, Colors.yellow],
                         ),
                         child: Container(
                           decoration: BoxDecoration(
@@ -187,7 +203,8 @@ class _DetailViewState extends State<DetailView> {
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [
-                                Colors.pink.withOpacity(0.7),
+                                const Color.fromARGB(255, 35, 27, 29)
+                                    .withOpacity(0.7),
                                 Colors.green.withOpacity(0.7)
                               ],
                             ),

@@ -35,6 +35,7 @@ class LandingScreen extends StatelessWidget {
                     items: [
                       navBarItem('Launches'),
                       navBarItem('Rockets'),
+                      navBarItem('Dragons'),
                     ]),
               ),
               body: context
