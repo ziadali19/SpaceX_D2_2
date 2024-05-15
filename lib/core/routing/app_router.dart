@@ -1,6 +1,9 @@
 // ignore_for_file: unused_local_variable
 import 'package:flutter/material.dart';
 import 'package:spacex_d2_2/core/routing/routes.dart';
+import 'package:spacex_d2_2/features/dragons/data/models/dragons_model.dart';
+import 'package:spacex_d2_2/features/dragons/presentation/screens/dragons_details_screen.dart';
+import 'package:spacex_d2_2/features/dragons/presentation/screens/dragons_screen.dart';
 import 'package:spacex_d2_2/features/landing/presentation/screens/landing_screen.dart';
 import 'package:spacex_d2_2/features/launches/data/models/launches_model.dart';
 import 'package:spacex_d2_2/features/launches/presentation/screens/hacker_video_view.dart';
@@ -33,6 +36,13 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (context) => RocketDetailsScreen(
                   rocket: arguments as Rocket,
+                ));
+      case Routes.DragonsScreen:
+        return MaterialPageRoute(builder: (context) => const DragonsScreen());
+      case Routes.DragonsScreen_Details:
+        return MaterialPageRoute(
+            builder: (context) => DragonDetailsScreen(
+                  dragons: arguments as Dragons,
                 ));
       default:
         return MaterialPageRoute(

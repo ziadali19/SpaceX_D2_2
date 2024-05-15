@@ -6,6 +6,9 @@ class Routes {
   static const luanches_details_Screen = 'luanches_details_Screen';
   // ignore: constant_identifier_names
   static const luanches_video_Screen = 'luanches_video_Screen';
-
   static const rocketDetails = 'rocketDetails';
+  // ignore: constant_identifier_names
+  static const DragonsScreen = 'DragonsScreen';
+  // ignore: constant_identifier_names
+  static const DragonsScreen_Details = 'DragonsScreen_Details';
 }

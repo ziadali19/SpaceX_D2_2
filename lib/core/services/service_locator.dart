@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:spacex_d2_2/features/dragons/controller/cubit/cubit/dragon_cubit.dart';
+import 'package:spacex_d2_2/features/dragons/data/repository/dragons_repository.dart';
 import 'package:spacex_d2_2/features/launches/controller/cubit/luanches_cubit.dart';
 import 'package:spacex_d2_2/features/launches/data/repository/launches_repository.dart';
 import 'package:spacex_d2_2/features/rockets/controller/cubit/rockets_cubit.dart';
@@ -16,5 +18,8 @@ class ServiceLocator {
     sl.registerFactory<RocketsCubit>(() => RocketsCubit(sl()));
     sl.registerLazySingleton<BaseRocketsRepository>(
         () => RocketsRepository(DioHelper.instance));
+    sl.registerFactory<DragonsCubit>(() => DragonsCubit(sl()));
+    sl.registerLazySingleton<BaseDragonsRepository>(
+        () => DragonsRepository(DioHelper.instance));
   }
 }
