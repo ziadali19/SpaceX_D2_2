@@ -33,9 +33,10 @@ class LandingScreen extends StatelessWidget {
                       cubit.changeNavScreen(value);
                     },
                     items: [
-                      navBarItem('Launches'),
                       navBarItem('Rockets'),
                       navBarItem('Dragons'),
+                      navBarItem('Launches'),
+                      navBarItem('Crew')
                     ]),
               ),
               body: context

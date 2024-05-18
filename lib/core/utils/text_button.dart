@@ -17,7 +17,6 @@ class TextBtn extends StatelessWidget {
           style: TextStyle(
             fontSize: fontSize,
             color: Colors.green,
-            fontFamily: "PressStart2P",
           ),
           textAlign: TextAlign.center,
         ));
