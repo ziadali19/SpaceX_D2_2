@@ -1,19 +1,21 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../core/theming/styles.dart';
 
 class Luanchesitem extends StatelessWidget {
   const Luanchesitem({
-    super.key,
-    required this.imageUrl,
-    //  required this.rocket,
-    required this.name,
+    Key? key,
     //required this.time,
-  });
+    required this.imageUrl,
+    required this.data,
+    required this.name,
+  }) : super(key: key);
   final String imageUrl;
   //final String time;
-//  final String rocket;
+  final dynamic data;
   final String name;
   @override
   Widget build(BuildContext context) {
@@ -36,11 +38,11 @@ class Luanchesitem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Text(
-            //   DateFormat.yMMMMd()
-            //       .format(DateTime.parse(date).toUtc().toLocal()),
-            //   style: TextStyles.font12Blue500,
-            // ),
+            Text(
+              DateFormat.yMMMM()
+                  .format(DateTime.parse('${data}').toUtc().toLocal()),
+              style: TextStyles.font12Blue500,
+            ),
             //   Text(
             //  //   rocket,
             //  //   style: TextStyles.font18White700,
