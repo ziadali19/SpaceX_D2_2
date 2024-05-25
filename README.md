@@ -42,7 +42,7 @@ SpaceX, officially known as Space Exploration Technologies Corp., is an American
 
      Or click the image below to view the design
 
- ## 🪤 How to Use
+ ## 🔔 How to Run
 
 ### Prerequisites
 
@@ -69,6 +69,14 @@ cd SpaceX_D2_2
 
                         
                         ```  flutter run
+
+ ## 🃏 How to use  
++ Download and install the app: Scan the QR code below to download the app. Follow the installation instructions appropriate for your device's operating system.
+ <img src="[https://github.com/ziadali19/SpaceX_D2_2/assets/75087008/cb102514-8e96-4d24-bc22-b9213913f4b3](https://private-user-images.githubusercontent.com/75087008/333835540-ee3d0581-4068-4b9d-b498-d4dd274ba8b7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTY2Nzc3NzIsIm5iZiI6MTcxNjY3NzQ3MiwicGF0aCI6Ii83NTA4NzAwOC8zMzM4MzU1NDAtZWUzZDA1ODEtNDA2OC00YjlkLWI0OTgtZDRkZDI3NGJhOGI3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA1MjUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNTI1VDIyNTExMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTkzYmE2OWQzOGE5ZTdiMzVjZmIxNDY4ZDdkMDBmZTU5MjNkYjUwZmE5NGU0YWRhMWNjZmNmYzgyZDM2Zjg5MWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.PG-Y-aqMaQr2Ov92mQMtKnUOD3jSYTn_OU94SBMN_PA)
+" alt="Qr_code" width="50%">
++ EXPLORE FEATURES: Open the app and browse the different screens of the app (launch, rocket, ship, crew and company information) to explore space content.
++ Interact with the app: View detailed information about SpaceX launches, rockets, ships, crews and company information, and use your device's navigation features to return to or exit the app.
+
 ##  🖐️ Usage
 + Once the app is running, you can interact with it through the connected device.
 + Follow the on-screen instructions to navigate through different screens including splash screen, onboarding screens, launches screen, rockets screen, Dragons 
