@@ -7,34 +7,43 @@ import 'package:spacex_d2_2/core/routing/routes.dart';
 import 'package:spacex_d2_2/features/launches/controller/cubit/luanches_cubit.dart';
 import 'package:spacex_d2_2/features/launches/data/models/launches_model.dart';
 import 'package:spacex_d2_2/features/launches/presentation/component/launch_item.dart';
-
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/widgets/shimmer_widget.dart';
 
 class LaunchesScreen extends StatelessWidget {
   const LaunchesScreen({super.key, LuanchModel? luanchModel});
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => sl<LuanchesCubit>()..getLunaches(),
       child: Scaffold(
+        appBar: AppBar(
+          // actions: [
+          //   IconButton(
+          //     icon: const Icon(Icons.search),
+          //     onPressed: () {
+          //       Navigator.push(
+          //         context,
+          //         MaterialPageRoute(builder: (context) => LaunchSearchScreen()),
+          //       ); // Action when the icon button is pressed
+          //       // LaunchSearchScreen();
+          //     },
+          //   ),
+          //   IconButton(
+          //     icon: const Icon(Icons.bookmark),
+          //     onPressed: () {
+          //       // Action when the icon button is pressed
+          //       // ignore: avoid_print
+          //       print('Notifications icon pressed');
+          //     },
+          //   ),
+          // ],
+          // ignore: prefer_const_constructors
+          title: Text('SpaceX Launch'),
+        ),
         body:
             CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
-          SliverAppBar(
-              pinned: true,
-              leadingWidth: 200.w,
-              leading: Row(
-                children: [
-                  horizontalSpace(20.w),
-                  Image.asset(
-                    'assets/images/spaceXLogo.png',
-                    height: 20.h,
-                    width: 163.w,
-                  ),
-                ],
-              )),
           BlocConsumer<LuanchesCubit, LuanchesState>(
             listener: (context, state) {
               if (state is LaunchesError) {
@@ -80,6 +89,8 @@ class LaunchesScreen extends StatelessWidget {
                               : "https://live.staticflickr.com/65535/49635401403_96f9c322dc_o.jpg",
                           // rocket: state.luanchModel![index].rocket as String,
                           name: state.luanchModel![index].name!,
+                          data: state.luanchModel![index].dateUtc,
+
                           //  time: state.luanchModel![index].datePrecision!,
                         ),
                       );
